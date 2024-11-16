@@ -2,7 +2,7 @@
 
 export const cards = async () => {
   try {
-    const result = await fetch('/api/hello', {
+    const result = await fetch('/api/shop', {
       method: 'GET',
     }).then((res) => res.json());
 
