@@ -47,7 +47,7 @@ const Body = () => {
     <div className="mx-auto w-full max-w-lg">
       <Card>
         <CardHeader>
-          <CardTitle>Let's create new product</CardTitle>
+          <CardTitle>Let&apos;s create new product</CardTitle>
         </CardHeader>
         <CardContent>
           <Form {...form}>
