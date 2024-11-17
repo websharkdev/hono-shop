@@ -1,21 +1,25 @@
+import { CreateProductSchema, ProductSchema } from '@/schemas';
+import { zValidator } from '@hono/zod-validator';
 import { Hono } from 'hono';
 import { z } from 'zod';
-import { zValidator } from '@hono/zod-validator';
 
 const router = new Hono();
 
-const schema = z.object({
-  id: z.number().int().positive().min(1),
-  title: z.string(),
-  amount: z.number().int().positive(),
-});
-
-const createSchema = schema.omit({ id: true });
-
-const fake: z.infer<typeof schema>[] = [
+const fake: z.infer<typeof ProductSchema>[] = [
   {
     id: 1,
-    title: 'Lorem ipsum',
+    title: 'Lorem ipsum 1',
+    description: 'a-man-holding-a-cell-phone-in-his-han',
+    imageURL:
+      'https://images.unsplash.com/photo-1719937051157-d3d81cc28e86?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    amount: 34,
+  },
+  {
+    id: 2,
+    title: 'Lorem ipsum 2',
+    description: 'a-man-holding-a-cell-phone-in-his-han',
+    imageURL:
+      'https://images.unsplash.com/photo-1719937051157-d3d81cc28e86?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     amount: 34,
   },
 ];
@@ -23,10 +27,10 @@ const fake: z.infer<typeof schema>[] = [
 router
   .get('/', async (c) => {
     return c.json({
-      shop: fake,
+      data: fake,
     });
   })
-  .post('/', zValidator('json', createSchema), async (c) => {
+  .post('/', zValidator('json', CreateProductSchema), async (c) => {
     const body = await c.req.valid('json');
 
     fake.push({ ...body, id: fake.length + 1 });
