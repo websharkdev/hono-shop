@@ -5,7 +5,7 @@ export const schema = z.object({
   description: z.string(),
   imageURL: z.string(),
   title: z.string(),
-  amount: z.number().int().positive(),
+  amount: z.number().positive(),
 });
 
 export const createSchema = schema.omit({ id: true });
