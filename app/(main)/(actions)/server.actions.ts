@@ -1,12 +1,14 @@
 'use client';
 
+import axios from 'axios';
+
 export const cards = async () => {
   try {
-    const result = await fetch('/api/shop', {
+    const result = await axios('/api/shop', {
       method: 'GET',
-    }).then((res) => res.json());
+    }).then((response) => response.data);
 
-    return result;
+    return result.data;
   } catch (e: unknown) {
     const error = e as Error;
 
