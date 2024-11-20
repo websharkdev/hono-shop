@@ -1,8 +1,14 @@
+'use client';
+
+import { signIn, useSession } from '@/lib/auth.client';
 import { MCards } from './(components)';
+import { Button } from '@/components/ui/button';
 
 const Page = () => {
   const isLoggined = true;
+  const session = useSession();
 
+  console.log(session);
   return (
     <div className="grid grid-cols-1 gap-2.5">
       {isLoggined ? (
