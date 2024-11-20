@@ -7,9 +7,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hono/node-server": "^1.13.7",
     "@hono/zod-validator": "^0.4.1",
     "@hookform/resolvers": "^3.9.1",
     "@neondatabase/serverless": "^0.10.3",
+    "@prisma/client": "^5.22.0",
+    "@prisma/extension-accelerate": "^1.2.1",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@tanstack/react-query": "^5.60.5",
@@ -20,7 +23,9 @@
     "geist": "^1.3.1",
     "hono": "^4.6.10",
     "lucide-react": "^0.456.0",
+    "mongodb": "^6.10.0",
     "next": "^15.0.3",
+    "prisma": "^5.22.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.2",
